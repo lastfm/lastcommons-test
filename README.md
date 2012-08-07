@@ -1,5 +1,5 @@
 #About
-Common utility classes used by some [Last.fm](http://www.last.fm) projects. We have open-sourced this code to allow us to open-source additional projects that may have a dependency on this library.
+Common test classes used by some [Last.fm](http://www.last.fm) projects. We have open-sourced this code to allow us to open-source additional projects that may have a dependency on this library.
 
 #Start using
 You can [download](https://github.com/lastfm/lastcommons-test/downloads) a JAR file or obtain lastcommons-test from Maven Central using the following identifier:
