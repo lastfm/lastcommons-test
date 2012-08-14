@@ -33,7 +33,8 @@ public class SuffixedRootDataFolderIntegrationTest {
     File actualFolder = folder.getFolder();
     assertTrue(actualFolder.exists());
     assertTrue(actualFolder.canRead());
-    assertTrue(actualFolder.getAbsolutePath().endsWith("src/test/data/suffix"));
+    assertTrue(actualFolder.getAbsolutePath().endsWith(
+        "src" + File.separator + "test" + File.separator + "data" + File.separator + "suffix"));
   }
 
 }

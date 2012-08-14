@@ -20,8 +20,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 abstract class AbstractDataFolder implements DataFolder {
+
+  static final String FILE_SEPARATOR_REPLACEMENT = Matcher.quoteReplacement(File.separator);
+  static final String PACKAGE_DELIMITER_PATTERN = Pattern.quote(".");
 
   File folder;
 

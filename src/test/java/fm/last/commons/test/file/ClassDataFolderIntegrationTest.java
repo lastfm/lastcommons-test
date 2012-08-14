@@ -19,6 +19,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -33,7 +35,8 @@ public class ClassDataFolderIntegrationTest {
     File actualFolder = folder.getFolder();
     assertTrue(actualFolder.exists());
     assertTrue(actualFolder.canRead());
-    assertTrue(actualFolder.getAbsolutePath().endsWith(getClass().getName().replaceAll("\\.", File.separator)));
+    assertTrue(actualFolder.getAbsolutePath().endsWith(
+        getClass().getName().replaceAll(Pattern.quote("."), Matcher.quoteReplacement(File.separator))));
   }
 
 }

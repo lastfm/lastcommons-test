@@ -33,7 +33,7 @@ public class RootDataFolderIntegrationTest {
     File actualFolder = folder.getFolder();
     assertTrue(actualFolder.exists());
     assertTrue(actualFolder.canRead());
-    assertTrue(actualFolder.getAbsolutePath().endsWith("src/test/data"));
+    assertTrue(actualFolder.getAbsolutePath().endsWith("src" + File.separator + "test" + File.separator + "data"));
   }
 
 }

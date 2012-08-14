@@ -40,7 +40,9 @@ public final class MethodDataFolder extends AbstractDataFolder {
     return new Statement() {
       @Override
       public void evaluate() throws Throwable {
-        folder = new File(parent, targetClass.getName().replaceAll("\\.", File.separator) + File.separator + methodName);
+        folder = new File(parent, targetClass.getName().replaceAll(PACKAGE_DELIMITER_PATTERN,
+            FILE_SEPARATOR_REPLACEMENT)
+            + File.separator + methodName);
         base.evaluate();
       }
     };

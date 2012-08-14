@@ -39,7 +39,7 @@ public final class ClassDataFolder extends AbstractDataFolder {
       return base;
     }
     Class<?> targetClass = target.getClass();
-    folder = new File(parent, targetClass.getName().replaceAll("\\.", File.separator));
+    folder = new File(parent, targetClass.getName().replaceAll(PACKAGE_DELIMITER_PATTERN, FILE_SEPARATOR_REPLACEMENT));
     return new Statement() {
       @Override
       public void evaluate() throws Throwable {

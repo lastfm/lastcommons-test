@@ -19,6 +19,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -39,7 +41,8 @@ public class SubclassBeforeClassDataFolderIntegrationTest extends SuperclassBefo
     assertTrue(dataFile.exists());
     assertTrue(dataFile.canRead());
     assertTrue(dataFile.getAbsolutePath().endsWith(
-        getClass().getName().replaceAll("\\.", File.separator) + File.separator + DATA_FILE));
+        getClass().getName().replaceAll(Pattern.quote("."), Matcher.quoteReplacement(File.separator)) + File.separator
+            + DATA_FILE));
   }
 
 }
