@@ -1,6 +1,7 @@
 TBA
 - Modifications to file path resolution for Windows, contributed by mzgubin (see http://code.google.com/p/citrine-scheduler/issues/detail?id=44)
 - Migrated project to lastfm-oss-parent.
+- upgrading Spring to 3.2.2.RELEASE
 
 5.0.0 (2012-08-08)
 - Open Sourced
