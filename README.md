@@ -11,6 +11,73 @@ This project uses the [Maven](http://maven.apache.org/) build system.
 # Contributing
 All contributions are welcome. Please use the [Last.fm codeformatting profile](https://github.com/lastfm/lastfm-oss-config/blob/master/src/main/resources/fm/last/last.fm.eclipse-codeformatter-profile.xml) found in the `lastfm-oss-config` project for formatting your changes.
 
+
+#Usage examples
+
+##Temporary files and folders
+Use a <tt>fm.last.commons.test.file.TemporaryFolder</tt> rule to cleanly obtain a temporary folder for file writing etc. When doing so JUnit nicely handles the life-cycle of this folder, creating it when necessary and removing it when your test is done. The code looks something like this:
+
+    @Rule
+    public TemporaryFolder temporaryFolder = new TemporaryFolder();
+  
+    @Test
+    public void myTest() {
+      File myTempData = temporaryFolder.newFile("my-data");
+      ...
+
+##Data files and folders
+###Top level data folder
+    public class MyTest {
+  
+      @Rule
+      public DataFolder dataFolder = new RootDataFolder();
+  
+      @Test
+      public void myTestMethod() throws IOException {
+        File actualFolder = dataFolder.getFolder();
+        // Path: ./src/test/data
+        ...
+
+And also a child folder within the root:
+
+    public class MyMp3Test {
+  
+      @Rule
+      public DataFolder dataFolder = new RootDataFolder("mp3", "128K", "clean");
+  
+      @Test
+      public void myTestMethod() throws IOException {
+        File actualFolder = dataFolder.getFolder();
+        // Path: ./src/test/data/mp3/128k/clean
+        ...
+
+###Per-class data folder
+    public class MyTest {
+  
+      @Rule
+      public DataFolder dataFolder = new ClassDataFolder();
+  
+      @Test
+      public void myTestMethod() throws IOException {
+        File actualFolder = dataFolder.getFolder();
+        // Path: ./src/test/data/fm/last/project/MyTest
+        ...
+
+###Per-method data folder
+    public class MyTest {
+  
+      @Rule
+      public DataFolder dataFolder = new MethodDataFolder();
+  
+      @Test
+      public void myTestMethod() throws IOException {
+        File actualFolder = dataFolder.getFolder();
+        // Path: ./src/test/data/fm/last/project/MyTest/myTestMethod
+        ...
+
+
+***Note:*** calls to <tt>getFolder()</tt> will throw an exception if the folder doesn't exist or is not readable.
+
 #Legal
 Copyright 2012 [Last.fm](http://www.last.fm/)
 
