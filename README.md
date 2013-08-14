@@ -3,7 +3,7 @@ Common test classes used by some [Last.fm](http://www.last.fm) projects. We have
 
 #Start using
 You can [download](https://github.com/lastfm/lastcommons-test/downloads) a JAR file or obtain lastcommons-test from Maven Central using the following identifier:
-* [fm.last.commons:lastcommons-test:5.0.0](http://search.maven.org/#artifactdetails%7Cfm.last.commons%7Clastcommons-test%7C5.0.0%7Cjar)
+* [fm.last.commons:lastcommons-test:5.1.2](http://search.maven.org/#artifactdetails%7Cfm.last.commons%7Clastcommons-test%7C5.1.2%7Cjar)
 
 #Building
 This project uses the [Maven](http://maven.apache.org/) build system.
@@ -79,7 +79,7 @@ And also a child folder within the root:
 ***Note:*** calls to <tt>getFolder()</tt> will throw an exception if the folder doesn't exist or is not readable.
 
 #Legal
-Copyright 2012 [Last.fm](http://www.last.fm/)
+Copyright 2013 [Last.fm](http://www.last.fm/)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

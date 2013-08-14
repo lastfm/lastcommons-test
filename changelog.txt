@@ -1,4 +1,9 @@
 TBA
+- assertFileEquals now prints out a nice message when files aren't equal and are smaller than 1MB.
+- added assertFilesEquivalent which compares files with the same lines, just in a different order.
+- added ability to pass in CharSet to use for reading files to both methods above.
+
+5.1.1
 - Modifications to file path resolution for Windows, contributed by mzgubin (see http://code.google.com/p/citrine-scheduler/issues/detail?id=44)
 - Migrated project to lastfm-oss-parent.
 - upgrading Spring to 3.2.2.RELEASE
