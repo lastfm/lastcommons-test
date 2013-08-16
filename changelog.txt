@@ -1,4 +1,4 @@
-TBA
+5.1.2 (2013-08-16)
 - assertFileEquals now prints out a nice message when files aren't equal and are smaller than 1MB.
 - added assertFilesEquivalent which compares files with the same lines, just in a different order.
 - added ability to pass in CharSet to use for reading files to both methods above.
