@@ -22,7 +22,8 @@ Use a <tt>fm.last.commons.test.file.TemporaryFolder</tt> rule to cleanly obtain 
   
     @Test
     public void myTest() {
-      File myTempData = temporaryFolder.newFile("my-data");
+      File logged = temporaryFolder.newFile("log.txt");
+      File report = temporaryFolder.newFile("2012", "03", "01", "report.tsv");
       ...
 
 ##Data files and folders

@@ -17,6 +17,9 @@ package fm.last.commons.test.file;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Rule;
 import org.junit.rules.MethodRule;
@@ -87,8 +90,12 @@ public class TemporaryFolder implements MethodRule {
   /**
    * Returns a new fresh file with the given name under the temporary folder.
    */
-  public File newFile(String fileName) throws IOException {
-    File file = new File(folder, fileName);
+  public File newFile(String first, String... others) throws IOException {
+    List<String> elements = mergeElements(first, others);
+    File file = applyElements(elements);
+    if (!folder.equals(file.getParentFile())) {
+      file.getParentFile().mkdirs();
+    }
     file.createNewFile();
     return file;
   }
@@ -96,9 +103,10 @@ public class TemporaryFolder implements MethodRule {
   /**
    * Returns a new fresh folder with the given name under the temporary folder.
    */
-  public File newFolder(String folderName) {
-    File file = new File(folder, folderName);
-    file.mkdir();
+  public File newFolder(String first, String... others) {
+    List<String> elements = mergeElements(first, others);
+    File file = applyElements(elements);
+    file.mkdirs();
     return file;
   }
 
@@ -125,6 +133,26 @@ public class TemporaryFolder implements MethodRule {
       }
     }
     file.delete();
+  }
+
+  private File applyElements(List<String> elements) {
+    File file = folder;
+    for (String element : elements) {
+      file = new File(file, element);
+    }
+    return file;
+  }
+
+  private List<String> mergeElements(String first, String... others) {
+    if (first == null || first.trim().isEmpty()) {
+      throw new IllegalArgumentException("You must supply at least one path element.");
+    }
+    List<String> elements = new ArrayList<String>();
+    elements.add(first);
+    if (others != null && others.length > 0) {
+      elements.addAll(Arrays.asList(others));
+    }
+    return elements;
   }
 
 }
