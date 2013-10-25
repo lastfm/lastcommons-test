@@ -84,4 +84,14 @@ public class TemporaryFolderTest {
     temporaryFolder.newFolder(null);
   }
 
+  @Test(expected = IllegalArgumentException.class)
+  public void nullMultiElementFolder() {
+    temporaryFolder.newFolder("A", null, "B");
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void nullMultiElementFile() throws IOException {
+    temporaryFolder.newFile("X", null, "Y");
+  }
+
 }

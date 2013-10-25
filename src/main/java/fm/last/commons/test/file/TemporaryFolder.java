@@ -150,7 +150,12 @@ public class TemporaryFolder implements MethodRule {
     List<String> elements = new ArrayList<String>();
     elements.add(first);
     if (others != null && others.length > 0) {
-      elements.addAll(Arrays.asList(others));
+      for (String element : Arrays.asList(others)) {
+        if (element == null || element.trim().isEmpty()) {
+          throw new IllegalArgumentException("Path element may not be null or empty.");
+        }
+        elements.add(element);
+      }
     }
     return elements;
   }
