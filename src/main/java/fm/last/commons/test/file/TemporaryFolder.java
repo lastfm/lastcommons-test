@@ -18,7 +18,6 @@ package fm.last.commons.test.file;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Rule;
@@ -150,7 +149,7 @@ public class TemporaryFolder implements MethodRule {
     List<String> elements = new ArrayList<String>();
     elements.add(first);
     if (others != null && others.length > 0) {
-      for (String element : Arrays.asList(others)) {
+      for (String element : others) {
         if (element == null || element.trim().isEmpty()) {
           throw new IllegalArgumentException("Path element may not be null or empty.");
         }
