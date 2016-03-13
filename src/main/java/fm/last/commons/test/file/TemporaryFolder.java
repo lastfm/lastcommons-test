@@ -26,13 +26,15 @@ import org.junit.runners.model.FrameworkMethod;
 import org.junit.runners.model.Statement;
 
 /**
+ * <p>
  * Why we have our own version of this class: <a
  * href="http://stackoverflow.com/questions/7738881/junit-rule-lifecycle-interaction-with-before"
  * >http://stackoverflow.com/questions/7738881/junit-rule-lifecycle-interaction-with-before</a>
- * <p/>
+ * </p><p>
  * The TemporaryFolder Rule allows creation of files and folders that are guaranteed to be deleted when the test method
  * finishes (whether it passes or fails):
- * 
+ * </p>
+ *
  * <pre>
  * public static class HasTempFolder {
  *   &#064;Rule
@@ -78,7 +80,8 @@ public class TemporaryFolder implements MethodRule {
 
   // testing purposes only
   /**
-   * for testing purposes only. Do not use.
+   * For testing purposes only. Do not use.
+   * @throws IOException if a file operation fails.
    */
   public void create() throws IOException {
     folder = File.createTempFile("junit", "");
@@ -88,6 +91,10 @@ public class TemporaryFolder implements MethodRule {
 
   /**
    * Returns a new fresh file with the given name under the temporary folder.
+   * @param first The first path element.
+   * @param others Any other path elements.
+   * @return The new file.
+   * @throws IOException if a file operation fails.
    */
   public File newFile(String first, String... others) throws IOException {
     List<String> elements = mergeElements(first, others);
@@ -101,6 +108,9 @@ public class TemporaryFolder implements MethodRule {
 
   /**
    * Returns a new fresh folder with the given name under the temporary folder.
+   * @param first The first path element.
+   * @param others Any other path elements.
+   * @return The new folder.
    */
   public File newFolder(String first, String... others) {
     List<String> elements = mergeElements(first, others);
