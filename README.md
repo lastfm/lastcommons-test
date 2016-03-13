@@ -3,7 +3,7 @@ Common test classes used by some [Last.fm](http://www.last.fm) projects. We have
 
 #Start using
 You can [download](https://github.com/lastfm/lastcommons-test/downloads) a JAR file or obtain lastcommons-test from Maven Central using the following identifier:
-* [fm.last.commons:lastcommons-test:5.1.2](http://search.maven.org/#artifactdetails%7Cfm.last.commons%7Clastcommons-test%7C5.1.2%7Cjar)
+* [fm.last.commons:lastcommons-test:5.2.1](http://search.maven.org/#artifactdetails%7Cfm.last.commons%7Clastcommons-test%7C5.2.1%7Cjar)
 
 #Building
 This project uses the [Maven](http://maven.apache.org/) build system.
