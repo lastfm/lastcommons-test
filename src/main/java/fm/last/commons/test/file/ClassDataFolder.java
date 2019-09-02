@@ -21,7 +21,7 @@ import java.lang.annotation.Annotation;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runners.model.FrameworkMethod;
+import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
 
 public final class ClassDataFolder extends AbstractDataFolder {
@@ -32,13 +32,13 @@ public final class ClassDataFolder extends AbstractDataFolder {
     parent = new File("src" + File.separator + "test" + File.separator + "data");
   }
 
-  @SuppressWarnings("unchecked")
   @Override
-  public final Statement apply(final Statement base, FrameworkMethod method, Object target) {
-    if (notAnnotatedWithAny(method, Test.class, Before.class, After.class)) {
+  public Statement apply(final Statement base, Description description) {
+    if (notAnnotatedWithAny(description, Test.class, Before.class, After.class)) {
       return base;
     }
-    Class<?> targetClass = target.getClass();
+
+    Class<?> targetClass = description.getTestClass();
     folder = new File(parent, targetClass.getName().replaceAll(PACKAGE_DELIMITER_PATTERN, FILE_SEPARATOR_REPLACEMENT));
     return new Statement() {
       @Override
@@ -48,14 +48,13 @@ public final class ClassDataFolder extends AbstractDataFolder {
     };
   }
 
-  private boolean notAnnotatedWithAny(FrameworkMethod method, Class<? extends Annotation>... annotationClasses) {
+  private boolean notAnnotatedWithAny(Description description, Class<? extends Annotation>... annotationClasses){
     for (Class<? extends Annotation> annotationClass : annotationClasses) {
-      Annotation annotationInstance = method.getAnnotation(annotationClass);
+      Annotation annotationInstance = description.getAnnotation(annotationClass);
       if (annotationInstance != null) {
         return false;
       }
     }
     return true;
   }
-
 }

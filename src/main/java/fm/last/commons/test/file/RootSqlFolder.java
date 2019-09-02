@@ -17,7 +17,7 @@ package fm.last.commons.test.file;
 
 import java.io.File;
 
-import org.junit.runners.model.FrameworkMethod;
+import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
 
 public final class RootSqlFolder extends AbstractDataFolder {
@@ -41,8 +41,7 @@ public final class RootSqlFolder extends AbstractDataFolder {
   }
 
   @Override
-  public Statement apply(Statement base, FrameworkMethod method, Object target) {
-    return base;
+  public Statement apply(Statement statement, Description description) {
+    return statement;
   }
-
 }

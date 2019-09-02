@@ -18,7 +18,7 @@ package fm.last.commons.test.file;
 import java.io.File;
 
 import org.junit.Test;
-import org.junit.runners.model.FrameworkMethod;
+import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
 
 public final class MethodDataFolder extends AbstractDataFolder {
@@ -30,13 +30,13 @@ public final class MethodDataFolder extends AbstractDataFolder {
   }
 
   @Override
-  public final Statement apply(final Statement base, FrameworkMethod method, Object target) {
-    Test testAnnotation = method.getAnnotation(Test.class);
-    if (testAnnotation == null) {
+  public Statement apply(final Statement base, Description description) {
+    Test testAnnotation = description.getAnnotation(Test.class);
+    if(testAnnotation == null){
       return base;
     }
-    final String methodName = method.getName();
-    final Class<?> targetClass = target.getClass();
+    final String methodName = description.getMethodName();
+    final Class<?> targetClass = description.getTestClass();
     return new Statement() {
       @Override
       public void evaluate() throws Throwable {
@@ -46,6 +46,6 @@ public final class MethodDataFolder extends AbstractDataFolder {
         base.evaluate();
       }
     };
-  }
 
+  }
 }

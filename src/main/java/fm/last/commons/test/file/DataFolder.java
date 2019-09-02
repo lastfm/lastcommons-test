@@ -19,9 +19,9 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 
-import org.junit.rules.MethodRule;
+import org.junit.rules.TestRule;
 
-public interface DataFolder extends MethodRule {
+public interface DataFolder extends TestRule {
 
   File getFolder() throws IOException;
 
