@@ -32,6 +32,7 @@ public final class ClassDataFolder extends AbstractDataFolder {
     parent = new File("src" + File.separator + "test" + File.separator + "data");
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public Statement apply(final Statement base, Description description) {
     if (notAnnotatedWithAny(description, Test.class, Before.class, After.class)) {
