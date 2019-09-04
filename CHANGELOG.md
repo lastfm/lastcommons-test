@@ -1,4 +1,8 @@
-## 6.0.0 - 2019-09-04
+## [6.1.0] - TBD
+### Changed
+- Updated `MethodRule` to `TestRule` in the `DataFolder` interface.
+
+## [6.0.0] - 2019-09-04
 ### Removed
 - Removed test dependency on Spring. 
 
