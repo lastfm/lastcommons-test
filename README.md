@@ -1,20 +1,20 @@
-#About
+# About
 Common test classes used by some [Last.fm](http://www.last.fm) projects. We have open-sourced this code to allow us to open-source additional projects that may have a dependency on this library.
 
-#Start using
+# Start using
 You can [download](https://github.com/lastfm/lastcommons-test/downloads) a JAR file or obtain lastcommons-test from Maven Central using the following identifier:
 * [fm.last.commons:lastcommons-test:5.2.1](http://search.maven.org/#artifactdetails%7Cfm.last.commons%7Clastcommons-test%7C5.2.1%7Cjar)
 
-#Building
+# Building
 This project uses the [Maven](http://maven.apache.org/) build system.
 
 # Contributing
 All contributions are welcome. Please use the [Last.fm codeformatting profile](https://github.com/lastfm/lastfm-oss-config/blob/master/src/main/resources/fm/last/last.fm.eclipse-codeformatter-profile.xml) found in the `lastfm-oss-config` project for formatting your changes.
 
 
-#Usage examples
+# Usage examples
 
-##Temporary files and folders
+## Temporary files and folders
 Use a <tt>fm.last.commons.test.file.TemporaryFolder</tt> rule to cleanly obtain a temporary folder for file writing etc. When doing so JUnit nicely handles the life-cycle of this folder, creating it when necessary and removing it when your test is done. The code looks something like this:
 
     @Rule
@@ -26,8 +26,8 @@ Use a <tt>fm.last.commons.test.file.TemporaryFolder</tt> rule to cleanly obtain 
       File report = temporaryFolder.newFile("2012", "03", "01", "report.tsv");
       ...
 
-##Data files and folders
-###Top level data folder
+## Data files and folders
+### Top level data folder
     public class MyTest {
   
       @Rule
@@ -52,7 +52,7 @@ And also a child folder within the root:
         // Path: ./src/test/data/mp3/128k/clean
         ...
 
-###Per-class data folder
+### Per-class data folder
     public class MyTest {
   
       @Rule
@@ -64,7 +64,7 @@ And also a child folder within the root:
         // Path: ./src/test/data/fm/last/project/MyTest
         ...
 
-###Per-method data folder
+### Per-method data folder
     public class MyTest {
   
       @Rule
@@ -79,7 +79,7 @@ And also a child folder within the root:
 
 ***Note:*** calls to <tt>getFolder()</tt> will throw an exception if the folder doesn't exist or is not readable.
 
-#Legal
+# Legal
 Copyright 2013-2019 [Last.fm](http://www.last.fm/)
 
 Licensed under the Apache License, Version 2.0 (the "License");
