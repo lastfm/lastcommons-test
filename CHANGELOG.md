@@ -1,4 +1,4 @@
-## TBD - TBD
+## 6.0.0 - 2019-09-04
 ### Removed
 - Removed test dependency on Spring. 
 
