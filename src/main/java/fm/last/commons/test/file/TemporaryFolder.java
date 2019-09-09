@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Last.fm
+ * Copyright 2012-2019 Last.fm
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -21,8 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Rule;
-import org.junit.rules.MethodRule;
-import org.junit.runners.model.FrameworkMethod;
+import org.junit.rules.TestRule;
+import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
 
 /**
@@ -49,12 +49,12 @@ import org.junit.runners.model.Statement;
  * }
  * </pre>
  */
-public class TemporaryFolder implements MethodRule {
+public class TemporaryFolder implements TestRule {
 
   private File folder;
 
   @Override
-  public final Statement apply(final Statement base, FrameworkMethod method, Object target) {
+  public Statement apply(final Statement base, Description description) {
     Throwable caught;
     try {
       create();
@@ -168,5 +168,4 @@ public class TemporaryFolder implements MethodRule {
     }
     return elements;
   }
-
 }
