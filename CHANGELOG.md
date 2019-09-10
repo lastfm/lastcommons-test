@@ -1,4 +1,4 @@
-## [6.1.0] - TBD
+## [6.1.0] - 2019-09-10
 ### Changed
 - Updated `MethodRule` to `TestRule` in the `DataFolder` interface.
 
