@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Last.fm
+ * Copyright 2012-2019 Last.fm
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@ package fm.last.commons.test.file;
 
 import java.io.File;
 
-import org.junit.runners.model.FrameworkMethod;
+import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
 
 public final class RootSqlFolder extends AbstractDataFolder {
@@ -41,8 +41,7 @@ public final class RootSqlFolder extends AbstractDataFolder {
   }
 
   @Override
-  public Statement apply(Statement base, FrameworkMethod method, Object target) {
-    return base;
+  public Statement apply(Statement statement, Description description) {
+    return statement;
   }
-
 }
