@@ -18,10 +18,12 @@ package fm.last.commons.test.file;
 import java.io.File;
 
 import org.junit.Test;
+import org.junit.jupiter.api.extension.BeforeEachCallback;
+import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
 
-public final class MethodDataFolder extends AbstractDataFolder {
+public final class MethodDataFolder extends AbstractDataFolder implements BeforeEachCallback {
 
   private final File parent;
 
@@ -47,5 +49,14 @@ public final class MethodDataFolder extends AbstractDataFolder {
       }
     };
 
+  }
+
+  @Override
+  public void beforeEach(ExtensionContext extensionContext) {
+    final String methodName = extensionContext.getRequiredTestMethod().getName();
+    final Class<?> targetClass = extensionContext.getRequiredTestClass();
+    folder = new File(parent, targetClass.getName().replaceAll(PACKAGE_DELIMITER_PATTERN,
+        FILE_SEPARATOR_REPLACEMENT)
+        + File.separator + methodName);
   }
 }

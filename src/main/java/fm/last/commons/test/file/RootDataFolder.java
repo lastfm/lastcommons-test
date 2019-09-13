@@ -17,10 +17,12 @@ package fm.last.commons.test.file;
 
 import java.io.File;
 
+import org.junit.jupiter.api.extension.BeforeEachCallback;
+import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
 
-public final class RootDataFolder extends AbstractDataFolder {
+public final class RootDataFolder extends AbstractDataFolder implements BeforeEachCallback{
 
   public RootDataFolder() {
     this(new String[] {});
@@ -43,5 +45,10 @@ public final class RootDataFolder extends AbstractDataFolder {
   @Override
   public Statement apply(Statement statement, Description description) {
     return statement;
+  }
+
+  @Override
+  public void beforeEach(ExtensionContext extensionContext){
+    //Needed for extension registration
   }
 }

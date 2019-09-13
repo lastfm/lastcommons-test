@@ -21,10 +21,12 @@ import java.lang.annotation.Annotation;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.extension.BeforeEachCallback;
+import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
 
-public final class ClassDataFolder extends AbstractDataFolder {
+public final class ClassDataFolder extends AbstractDataFolder implements BeforeEachCallback{
 
   private final File parent;
 
@@ -57,5 +59,11 @@ public final class ClassDataFolder extends AbstractDataFolder {
       }
     }
     return true;
+  }
+
+  @Override
+  public void beforeEach(ExtensionContext extensionContext) throws Exception {
+    Class<?> targetClass = extensionContext.getRequiredTestClass();
+    folder = new File(parent, targetClass.getName().replaceAll(PACKAGE_DELIMITER_PATTERN, FILE_SEPARATOR_REPLACEMENT));
   }
 }
