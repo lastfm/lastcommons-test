@@ -20,7 +20,7 @@ import java.io.File;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
 
-public final class RootDataFolder extends AbstractDataFolder {
+public final class RootDataFolder extends DataFolder {
 
   public RootDataFolder() {
     this(new String[] {});

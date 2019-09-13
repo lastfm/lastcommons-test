@@ -24,7 +24,7 @@ import org.junit.Test;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
 
-public final class ClassDataFolder extends AbstractDataFolder {
+public final class ClassDataFolder extends DataFolder {
 
   private final File parent;
 
