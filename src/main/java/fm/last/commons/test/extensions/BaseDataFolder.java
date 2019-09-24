@@ -6,20 +6,22 @@ import java.net.URI;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import fm.last.commons.test.file.BaseDataFolder;
-import fm.last.commons.test.file.DataFolderCore;
+import fm.last.commons.test.core.DataFolderUtils;
 
-public abstract class DataFolder implements BaseDataFolder {
+public abstract class BaseDataFolder implements fm.last.commons.test.core.DataFolder {
 
   static final String FILE_SEPARATOR_REPLACEMENT = Matcher.quoteReplacement(File.separator);
   static final String PACKAGE_DELIMITER_PATTERN = Pattern.quote(".");
 
-  private DataFolderCore core = new DataFolderCore();
-  File folder;
+  /**
+   * Implement to instantiate the data folder file
+   * @return the data folder
+   */
+  public abstract File getDataFolder();
 
   @Override
   public File getFolder() throws IOException {
-    return core.getFolder(folder);
+    return DataFolderUtils.getFolder(getDataFolder());
   }
 
   @Override
@@ -29,11 +31,11 @@ public abstract class DataFolder implements BaseDataFolder {
 
   @Override
   public String getAbsolutePath(String relativePath) throws IOException {
-    return core.internalGetAbsolutePath(relativePath, folder);
+    return DataFolderUtils.getAbsolutePath(relativePath, getDataFolder());
   }
 
   @Override
   public URI getUri(String relativePath) throws IOException {
-    return core.getUri(relativePath, folder);
+    return DataFolderUtils.getUri(relativePath, getDataFolder());
   }
 }

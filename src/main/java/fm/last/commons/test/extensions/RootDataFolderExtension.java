@@ -2,31 +2,24 @@ package fm.last.commons.test.extensions;
 
 import java.io.File;
 
-import org.junit.jupiter.api.extension.BeforeEachCallback;
-import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.extension.Extension;
 
-public class RootDataFolderExtension extends DataFolder implements BeforeEachCallback {
+import fm.last.commons.test.core.DataFolderUtils;
 
-  public RootDataFolderExtension(){
+class RootDataFolderExtension extends BaseDataFolder implements Extension {
+
+  private File folder;
+
+  public RootDataFolderExtension() {
     this(new String[] {});
   }
 
   public RootDataFolderExtension(String... children) {
-    StringBuilder path = new StringBuilder();
-    path.append("src");
-    path.append(File.separator);
-    path.append("test");
-    path.append(File.separator);
-    path.append("data");
-    for (String child : children) {
-      path.append(File.separator);
-      path.append(child);
-    }
-    folder = new File(path.toString());
+    folder = DataFolderUtils.buildRootDataFolder(children);
   }
 
   @Override
-  public void beforeEach(ExtensionContext extensionContext) throws Exception {
-    //To register extension
+  public File getDataFolder() {
+    return folder;
   }
 }

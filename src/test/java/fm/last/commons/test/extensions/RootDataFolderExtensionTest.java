@@ -8,6 +8,8 @@ import java.io.IOException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
+import fm.last.commons.test.core.DataFolder;
+
 public class RootDataFolderExtensionTest {
 
   @RegisterExtension

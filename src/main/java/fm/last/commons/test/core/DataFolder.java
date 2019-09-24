@@ -13,13 +13,13 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package fm.last.commons.test.file;
+package fm.last.commons.test.core;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 
-public interface BaseDataFolder {
+public interface DataFolder {
 
   File getFolder() throws IOException;
 

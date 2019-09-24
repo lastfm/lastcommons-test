@@ -11,6 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.api.function.Executable;
 
+import fm.last.commons.test.core.DataFolder;
+
 public class MethodDataFolderExtensionTest {
 
   @RegisterExtension

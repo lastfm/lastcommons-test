@@ -27,6 +27,7 @@ import org.junit.runners.model.Statement;
 public final class ClassDataFolder extends DataFolder {
 
   private final File parent;
+  private File folder;
 
   public ClassDataFolder() {
     parent = new File("src" + File.separator + "test" + File.separator + "data");
@@ -38,7 +39,6 @@ public final class ClassDataFolder extends DataFolder {
     if (notAnnotatedWithAny(description, Test.class, Before.class, After.class)) {
       return base;
     }
-
     Class<?> targetClass = description.getTestClass();
     folder = new File(parent, targetClass.getName().replaceAll(PACKAGE_DELIMITER_PATTERN, FILE_SEPARATOR_REPLACEMENT));
     return new Statement() {
@@ -47,6 +47,11 @@ public final class ClassDataFolder extends DataFolder {
         base.evaluate();
       }
     };
+  }
+
+  @Override
+  public File getDataFolder() {
+    return folder;
   }
 
   private boolean notAnnotatedWithAny(Description description, Class<? extends Annotation>... annotationClasses){

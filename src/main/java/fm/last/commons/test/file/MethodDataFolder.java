@@ -24,6 +24,7 @@ import org.junit.runners.model.Statement;
 public final class MethodDataFolder extends DataFolder {
 
   private final File parent;
+  private File folder;
 
   public MethodDataFolder() {
     parent = new File("src" + File.separator + "test" + File.separator + "data");
@@ -47,5 +48,10 @@ public final class MethodDataFolder extends DataFolder {
       }
     };
 
+  }
+
+  @Override
+  public File getDataFolder() {
+    return folder;
   }
 }

@@ -11,6 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.api.function.Executable;
 
+import fm.last.commons.test.core.DataFolder;
+
 public class RootSqlFolderExtensionTest {
 
   @RegisterExtension
@@ -27,7 +29,7 @@ public class RootSqlFolderExtensionTest {
     assertThrows(FileNotFoundException.class, new Executable() {
       @Override
       public void execute() throws Throwable {
-        DataFolder newSqlFolder = new RootSqlFolderExtension("sub");
+        BaseDataFolder newSqlFolder = new RootSqlFolderExtension("sub");
         File notFound = newSqlFolder.getFolder();
       }
     });
