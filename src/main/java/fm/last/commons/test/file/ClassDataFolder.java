@@ -39,6 +39,7 @@ public final class ClassDataFolder extends DataFolder {
     if (notAnnotatedWithAny(description, Test.class, Before.class, After.class)) {
       return base;
     }
+
     Class<?> targetClass = description.getTestClass();
     folder = new File(parent, targetClass.getName().replaceAll(PACKAGE_DELIMITER_PATTERN, FILE_SEPARATOR_REPLACEMENT));
     return new Statement() {

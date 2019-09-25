@@ -38,7 +38,7 @@ public final class RootDataFolder extends DataFolder {
   public Statement apply(Statement statement, Description description) {
     return statement;
   }
-
+  
   @Override
   public File getDataFolder() {
     return folder;

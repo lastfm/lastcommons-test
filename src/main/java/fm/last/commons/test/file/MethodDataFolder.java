@@ -47,7 +47,6 @@ public final class MethodDataFolder extends DataFolder {
         base.evaluate();
       }
     };
-
   }
 
   @Override
