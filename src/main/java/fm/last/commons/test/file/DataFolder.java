@@ -24,7 +24,6 @@ import java.util.regex.Pattern;
 import org.junit.rules.TestRule;
 
 import fm.last.commons.test.core.DataFolderUtils;
-public interface DataFolder extends TestRule {
 
 /**
  * NOTE: This class shares the same name as the interface due to backwards compatibility issues
