@@ -35,13 +35,13 @@ public final class DataFolderUtils {
     return new File(getFolder(folder), relativePath).getAbsolutePath();
   }
 
-  public static File buildRootDataFolder(String... children){
+  public static File buildDataFolder(String first, String... children){
     StringBuilder path = new StringBuilder();
     path.append("src");
     path.append(File.separator);
     path.append("test");
     path.append(File.separator);
-    path.append("data");
+    path.append(first);
     for (String child : children) {
       path.append(File.separator);
       path.append(child);
@@ -49,17 +49,12 @@ public final class DataFolderUtils {
     return new File(path.toString());
   }
 
-  public static File buildRootSqlDataFolder(String... children){
-    StringBuilder path = new StringBuilder();
-    path.append("src");
-    path.append(File.separator);
-    path.append("test");
-    path.append(File.separator);
-    path.append("sql");
-    for (String child : children) {
-      path.append(File.separator);
-      path.append(child);
-    }
-    return new File(path.toString());
+
+  public static File buildRootDataFolder(String... children){
+    return buildDataFolder("data", children);
+  }
+
+  public static File buildRootSqlDataFolder(String... children) {
+    return buildDataFolder("sql", children);
   }
 }
