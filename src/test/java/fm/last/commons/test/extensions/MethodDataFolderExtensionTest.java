@@ -25,7 +25,7 @@ public class MethodDataFolderExtensionTest {
   }
 
   @Test
-  void nonExistentFolder() throws IOException {
+  void nonExistentFolder() {
     assertThrows(FileNotFoundException.class, new Executable() {
       @Override
       public void execute() throws Throwable {

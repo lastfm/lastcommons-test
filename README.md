@@ -27,7 +27,38 @@ Use a <tt>fm.last.commons.test.file.TemporaryFolder</tt> rule to cleanly obtain 
       ...
 
 ## Data files and folders
+
+Data folders are now available as JUnit4 Rules _and_ JUnit5 Extensions. Examples can be found below:
+
 ### Top level data folder
+
+#### JUnit5 Example
+    public class MyTest {
+  
+      @RegisterExtension
+      public DataFolder dataFolder = new RootDataFolderExtension();
+  
+      @Test
+      public void myTestMethod() throws IOException {
+        File actualFolder = dataFolder.getFolder();
+        // Path: ./src/test/data
+        ...
+        
+And also a child folder within the root:
+
+    public class MyMp3Test {
+  
+      @RegisterExtension
+      public DataFolder dataFolder = new RootDataFolderExtension("mp3", "128K", "clean");
+  
+      @Test
+      public void myTestMethod() throws IOException {
+        File actualFolder = dataFolder.getFolder();
+        // Path: ./src/test/data/mp3/128k/clean
+        ...
+
+
+#### JUnit4 Example
     public class MyTest {
   
       @Rule
@@ -53,6 +84,20 @@ And also a child folder within the root:
         ...
 
 ### Per-class data folder
+
+#### JUnit5 Example
+    public class MyTest {
+  
+      @RegisterExtension
+      public DataFolder dataFolder = new ClassDataFolderExtension();
+  
+      @Test
+      public void myTestMethod() throws IOException {
+        File actualFolder = dataFolder.getFolder();
+        // Path: ./src/test/data/fm/last/project/MyTest
+        ...
+
+#### JUnit4 Example
     public class MyTest {
   
       @Rule
@@ -65,6 +110,21 @@ And also a child folder within the root:
         ...
 
 ### Per-method data folder
+
+#### JUnit5 Example
+    public class MyTest {
+  
+      @RegisterExtension
+      public DataFolder dataFolder = new MethodDataFolderExtension();
+  
+      @Test
+      public void myTestMethod() throws IOException {
+        File actualFolder = dataFolder.getFolder();
+        // Path: ./src/test/data/fm/last/project/MyTest/myTestMethod
+        ...
+
+
+#### JUnit4 Example
     public class MyTest {
   
       @Rule
