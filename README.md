@@ -2,8 +2,21 @@
 Common test classes used by some [Last.fm](http://www.last.fm) projects. We have open-sourced this code to allow us to open-source additional projects that may have a dependency on this library.
 
 # Start using
-You can [download](https://github.com/lastfm/lastcommons-test/downloads) a JAR file or obtain lastcommons-test from Maven Central using the following identifier:
-* [fm.last.commons:lastcommons-test:5.2.1](http://search.maven.org/#artifactdetails%7Cfm.last.commons%7Clastcommons-test%7C5.2.1%7Cjar)
+Obtain lastcommons-test from Maven Central:
+
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/fm.last.commons/lastcommons-test/badge.svg?subject=fm.last:lastcommons-test)](https://maven-badges.herokuapp.com/maven-central/fm.last.commons/lastcommons-test) ![GitHub license](https://img.shields.io/github/license/lastfm/lastcommons-test)
+
+This project provides a TemporaryFolder or a DataFolder for use in your JUnit tests. 
+
+`TemporaryFolder` gives you an empty folder for each test that lets you create folders and files during your test. JUnit nicely handles the life-cycle of this folder, creating it when necessary and removing it when your test is done.
+
+The `DataFolder` classes provide a convenient way to refer to files and folders containing test data within your project, so you can fetch data easily during a test without needing to hard code paths.
+
+To use within your own tests, make sure you have either JUnit4 or JUnit5 in your POM. Neither are provided through `lastcommons-test`.
+
+
+You can [download](https://search.maven.org/remotecontent?filepath=fm/last/commons/lastcommons-test/5.2.1/lastcommons-test-5.2.1.jar) a JAR file or obtain lastcommons-test from Maven Central using the following identifier:
+* [fm.last.commons:lastcommons-test](https://search.maven.org/artifact/fm.last.commons/lastcommons-test)
 
 # Building
 This project uses the [Maven](http://maven.apache.org/) build system.
@@ -15,7 +28,7 @@ All contributions are welcome. Please use the [Last.fm codeformatting profile](h
 # Usage examples
 
 ## Temporary files and folders
-Use a <tt>fm.last.commons.test.file.TemporaryFolder</tt> rule to cleanly obtain a temporary folder for file writing etc. When doing so JUnit nicely handles the life-cycle of this folder, creating it when necessary and removing it when your test is done. The code looks something like this:
+Use a <tt>fm.last.commons.test.file.TemporaryFolder</tt> rule to cleanly obtain a temporary folder for file writing etc. The code looks something like this:
 
     @Rule
     public TemporaryFolder temporaryFolder = new TemporaryFolder();
