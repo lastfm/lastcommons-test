@@ -13,34 +13,20 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package fm.last.commons.test.file;
+package fm.last.commons.test.core;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.URI;
 
-import org.junit.runner.Description;
-import org.junit.runners.model.Statement;
+public interface DataFolder {
 
-import fm.last.commons.test.core.DataFolderUtils;
+  File getFolder() throws IOException;
 
-public final class RootSqlFolder extends DataFolder {
+  File getFile(String relativePath) throws IOException;
 
-  private File folder;
+  String getAbsolutePath(String relativePath) throws IOException;
 
-  public RootSqlFolder() {
-    this(new String[] {});
-  }
+  URI getUri(String relativePath) throws IOException;
 
-  public RootSqlFolder(String... children) {
-    folder = DataFolderUtils.buildRootSqlDataFolder(children);
-  }
-
-  @Override
-  public Statement apply(Statement statement, Description description) {
-    return statement;
-  }
-  
-  @Override
-  public File getDataFolder() {
-    return folder;
-  }
 }

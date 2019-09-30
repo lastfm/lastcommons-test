@@ -20,28 +20,27 @@ import java.io.File;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
 
-public final class RootDataFolder extends AbstractDataFolder {
+import fm.last.commons.test.core.DataFolderUtils;
+
+public final class RootDataFolder extends DataFolder {
+
+  private File folder;
 
   public RootDataFolder() {
     this(new String[] {});
   }
 
   public RootDataFolder(String... children) {
-    StringBuilder path = new StringBuilder();
-    path.append("src");
-    path.append(File.separator);
-    path.append("test");
-    path.append(File.separator);
-    path.append("data");
-    for (String child : children) {
-      path.append(File.separator);
-      path.append(child);
-    }
-    folder = new File(path.toString());
+    folder = DataFolderUtils.buildRootDataFolder(children);
   }
 
   @Override
   public Statement apply(Statement statement, Description description) {
     return statement;
+  }
+  
+  @Override
+  public File getDataFolder() {
+    return folder;
   }
 }

@@ -1,3 +1,10 @@
+## [7.0.0] - TBD
+### Added
+- Folder extension classes for all the `DataFolder` rules.
+
+### Changed
+- JUnit4 and JUnit5 dependencies made `provided` in the POM.
+
 ## [6.1.0] - 2019-09-10
 ### Changed
 - Updated `MethodRule` to `TestRule` in the `DataFolder` interface.

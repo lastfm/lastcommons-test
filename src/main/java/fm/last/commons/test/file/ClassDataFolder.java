@@ -24,9 +24,10 @@ import org.junit.Test;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
 
-public final class ClassDataFolder extends AbstractDataFolder {
+public final class ClassDataFolder extends DataFolder {
 
   private final File parent;
+  private File folder;
 
   public ClassDataFolder() {
     parent = new File("src" + File.separator + "test" + File.separator + "data");
@@ -47,6 +48,11 @@ public final class ClassDataFolder extends AbstractDataFolder {
         base.evaluate();
       }
     };
+  }
+
+  @Override
+  public File getDataFolder() {
+    return folder;
   }
 
   private boolean notAnnotatedWithAny(Description description, Class<? extends Annotation>... annotationClasses){
