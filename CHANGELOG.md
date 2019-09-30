@@ -1,4 +1,4 @@
-## [7.0.0] - TBD
+## [7.0.0] - 2019-09-30
 ### Added
 - Folder extension classes for all the `DataFolder` rules.
 
