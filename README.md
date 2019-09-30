@@ -15,7 +15,7 @@ The `DataFolder` classes provide a convenient way to refer to files and folders 
 To use within your own tests, make sure you have either JUnit4 or JUnit5 in your POM. Neither are provided through `lastcommons-test`.
 
 
-You can [download](https://search.maven.org/remotecontent?filepath=fm/last/commons/lastcommons-test/5.2.1/lastcommons-test-5.2.1.jar) a JAR file or obtain lastcommons-test from Maven Central using the following identifier:
+You can [download](https://repository.sonatype.org/service/local/artifact/maven/redirect?r=central-proxy&g=fm.last.commons&a=lastcommons-test&p=jar&v=RELEASE) a JAR file or obtain lastcommons-test from Maven Central using the following identifier:
 * [fm.last.commons:lastcommons-test](https://search.maven.org/artifact/fm.last.commons/lastcommons-test)
 
 # Building
