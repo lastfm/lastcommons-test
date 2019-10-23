@@ -1,4 +1,4 @@
-## [7.0.2] - TBD
+## [7.0.2] - 2019-10-23
 ### Changed
 - Made `RootDataFolderExtension` and `RootSqlFolderExtension` classes public.
 
