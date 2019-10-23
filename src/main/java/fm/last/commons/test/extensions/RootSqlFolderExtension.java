@@ -6,7 +6,7 @@ import org.junit.jupiter.api.extension.Extension;
 
 import fm.last.commons.test.core.DataFolderUtils;
 
-class RootSqlFolderExtension extends BaseDataFolder implements Extension {
+public class RootSqlFolderExtension extends BaseDataFolder implements Extension {
 
   private File folder;
 
