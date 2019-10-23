@@ -1,3 +1,7 @@
+## [7.0.2] - TBD
+### Changed
+- Making `RootDataFolderExtension` and `RootSqlFolderExtension` classes public.
+
 ## [7.0.1] - 2019-10-22
 ### Changed
 - Redeploying Maven Artifacts as 7.0.0 release is not showing up in Maven Central (was released when Sonatype was experiencing issues so release 
