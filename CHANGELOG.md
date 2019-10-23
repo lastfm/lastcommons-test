@@ -1,6 +1,6 @@
 ## [7.0.2] - TBD
 ### Changed
-- Making `RootDataFolderExtension` and `RootSqlFolderExtension` classes public.
+- Made `RootDataFolderExtension` and `RootSqlFolderExtension` classes public.
 
 ## [7.0.1] - 2019-10-22
 ### Changed
