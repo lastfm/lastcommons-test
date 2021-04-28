@@ -1,3 +1,7 @@
+## [TBD] - TBD
+### Changed
+- Bump `commons-io` from `2.4` to `2.7`. 
+
 ## [7.0.2] - 2019-10-23
 ### Changed
 - Made `RootDataFolderExtension` and `RootSqlFolderExtension` classes public.
